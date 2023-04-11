@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Web Testing</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script> 
+   <style>
+   </style>
+</head>
+<body>
+   <div class="container-fluid">
+      <div class="row">
+         <div class="col-6">
+            <!-- <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary">
+               <div class="container-fluid">
+                 <a class="navbar-brand" href="#">Navbar</a>
+               </div>
+             </nav> -->
+            <h4>Aplikasi Penerapan bahasa alami</h3>
+            <br>
+            <i>Masukan kata pencarian dengan memasukan bahasa alami dan nama jalan yang ingin dicari</i>      
+            <form method="post">
+                  <!-- <span class="input-group-text" id="inputGroup-sizing-sm">Pecarian</span> -->
+               <input name="search" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="Contoh : Coba cari jalan Sudirman">
+               <div class="text-center mt-3">
+                  <input class="btn btn-primary mb-4" type="submit" value="Lakukan pencarian">
+               </div>
+               <!-- <td><input type="text"  id="search-box" class="form-control input-lg"></td> -->
+            </form>
+            
+            {% if search %}
+               <b>Data yang dicari :</b> {{ search }} <br>
+               <b>Waktu pencarian : </b> {{waktu}} <br>
+               <b>Hasil dari pencarian adalah :</b></br>
+               {% if list_flag  == False %}
+                  <p>{{ data_traffic }}</p>
+               {% elif flag_dataset  == True %}
+                  {% for item in data_traffic %}
+                  <li>pada jam {{item[3]}} {{item[0]}}, {{item[2]}}</li>
+                        {% endfor %}
+               {% elif flag_twitter  == True %}
+                  {% for item in data_traffic %}
+                     <li>pada jam {{item[3]}} {{item[1]}}, {{item[0]}}</li>w
+                     {% endfor %}
+                  {% else %}
+                  <ul>
+                     {% for item in data_traffic %}
+                        <li>pada jam {{item[4]}} {{item[0]}}, {{item[2]}}</li>
+                     {% endfor %}
+                     </ul>
+               {% endif %}
+               <!-- <i><div style="margin: 10px 0px; font-size: 18px;">{{ search }}</div></i> -->
+            {% endif %}
+         </div>
+         <div class="col-6">
+            <img class="img-fluid" style="width: 70%; margin-left: 30%;" src="{{image_url}}" alt="">
+         </div>
+      </div>
+     
+   </div>
+</body>
+</html>
